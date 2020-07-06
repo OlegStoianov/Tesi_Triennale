@@ -1,0 +1,335 @@
+%CLASSE DOCUMENTO - LINGUA E DIMENSIONE FONT
+\documentclass[corpo=11pt,numerazioneromana]{toptesi}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% INCLUSIONE PACCHETTI
+\usepackage[classica]{topfront}
+\usepackage[utf8]{inputenc} %utf8
+\usepackage[italian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{blindtext}
+\usepackage{graphicx,wrapfig}
+\usepackage{booktabs}
+\usepackage{lmodern}
+\usepackage{varioref}
+\usepackage{url}
+\usepackage{array}
+\usepackage{paralist}{\obeyspaces\global\let =\space}
+\usepackage{verbatim}
+\usepackage{subfig}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{listings}
+\usepackage[pass]{geometry}
+\usepackage[figuresright]{rotating}
+\usepackage{algorithm}
+\usepackage{setspace}
+\usepackage{algorithmic}
+\usepackage{amsmath}
+\usepackage[babel]{csquotes}
+\usepackage{hyperref}
+\usepackage[backend=biber,bibencoding=ascii]{biblatex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% CONFIGURAZIONE LINK E RIFERIMENTI
+\hypersetup{%
+    pdfpagemode={UseOutlines},
+    bookmarksopen,
+    pdfstartview={FitH},
+    colorlinks,
+    linkcolor={black}, %COLORE DEI RIFERIMENTI AL TESTO
+    citecolor={blue}, %COLORE DEI RIFERIMENTI ALLE CITAZIONI
+    urlcolor={blue} %COLORI DEGLI URL
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% CONFIGURAZIONE LISTATI/CODICE - CANCELLARE SE NON NECESSARIO
+% PYTHON - BIANCO E NERO
+\lstset{%
+	captionpos=b,
+	language=Python,
+	basicstyle =\small\ttfamily,
+	keywordstyle=\color{black}\bfseries,
+	breaklines=true,
+	breakatwhitespace=true,
+	frame=lines,
+	numbers=left,
+	numberstyle=\footnotesize,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% FRENCHSPACING VA _SEMPRE_ ABILITATO PER DOCUMENTI IN ITALIANO
+\frenchspacing
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%DEFINIZIONE SEZIONI IN NUMERAZIONE ROMANA
+%ELENCO DEI LISTATI/CODICI
+\makeatletter
+\newcommand\listofcodes{%
+ \iffrontmatter\else\frontmattertrue\fi
+ \if@openright\cleardoublepage\else\clearpage\fi
+ % change the meaning of \chapter in a group
+ \begingroup\def\chapter##1{\@schapter}
+ \phantomsection % for the hyperlink
+ \addcontentsline{toc}{chapter}{Elenco dei listati}
+ \lstlistoflistings
+ \endgroup
+} 
+\makeatother
+
+\addto\captionsitalian{%
+  \renewcommand{\lstlistlistingname}{Elenco dei listati}%
+  \renewcommand{\lstlistingname}{Listato}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% INFORMAZIONI PDF - PERSONALIZZARE
+\pdfinfo{%
+  /Title    (Sviluppo di una Web Application per l’ottimizzazione onboarding flussi)
+  /Author   (Oleg Stoianov)
+  /Subject  ()
+  /Keywords ()
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% LISTA DEI CAPITOLI DA INCLUDERE - PERSONALIZZARE
+\includeonly{%
+chap_introduzione,%
+chap_azienda,%
+chap_stage,%
+chap_strumenti,%
+chap_analisi,%
+chap_progettazione,%
+chap_verifica,%
+app_a,%
+}
+
+% FILE DI BIBLIOGRAFIA
+\addbibresource{bibliography.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% INIZIO DOCUMENTO
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% FRONTESPIZIO - PERSONALIZZARE
+% ELIMINATE LE VOCI CHE NON VI SERVONO
+
+% UNIVERSITA - NOME
+%\ateneo{Università degli Studi di Milano Bicocca}
+
+% FACOLTA - DICITURA - CANCELLARE O DECOMMENTARE
+%\FacoltaDi{Faculty of}
+% FACOLTA - NOME
+%\facolta{Scuola di Scienze
+%Dipartimento di Informatica, Sistemistica e Comunicazione
+%}
+
+% CORSO DI LAUREA - DICITURA (MANTENERE LO SPAZIO) - CANCELLARE O DECOMMENTARE
+%\CorsoDiLaureaIn{Master of Science in }
+% CORSO DI LAUREA - NOME
+%\corsodilaurea{Corso di laurea in Informatica}
+
+% TIPOLOGIA TESI
+%\TesiDiLaurea{Tesi di Laurea Triennale}
+
+% TITOLO
+%\titolo{Sviluppo di una Web Application per l’ottimizzazione onboarding flussi}
+
+
+% RELATORE/I - DICITURA - CANCELLARE SE UN SOLO RELATORE
+%\AdvisorName{Relatori}
+% RELATORE - PROF. NOME E COGNOME
+%\relatore{prof.\ Guido Giuseppe Fiorino}
+
+
+% CANDIDATO - DICITURA (MANTENERE I DUE PUNTI) - CANCELLARE O DECOMMENTARE
+%\CandidateName{Candidate:}
+
+% CANDIDATO - NOME E COGNOME
+%\candidato{Oleg Stoianov}
+% CANDIDATA - ELIMINARE O SOSTITUIRE CON IL PRECEDENTE
+%\candidata{Tinasa de Tinasis} 
+% SECONDO CANDIDATO - ELIMINARE O DECOMMENTARE
+%secondocandidato{Bombo de Bombis}
+%secondacandidata{Bomba de Bombis}
+
+% LOGO UNIVERSITA
+%\logosede{images/logo_unimib}
+
+% DATA - MESE ANNO
+%\sedutadilaurea{Luglio 2020}
+
+%\frontespizio
+
+\begin{titlepage}
+        
+        \noindent
+        \begin{minipage}[t]{0.18\textwidth}
+            \vspace{-4mm}{\includegraphics[scale=1.15]{images/logo_unimib.pdf}}
+        \end{minipage}
+        \begin{minipage}[t]{0.83\textwidth}
+        {
+                \setstretch{1.42}
+                {\textsc{Università degli Studi di Milano - Bicocca}} \\
+                \textbf{Scuola di Scienze} \\
+                \textbf{Dipartimento di Informatica, Sistemistica e Comunicazione} \\
+                \textbf{Corso di laurea in Informatica} \\
+                \par
+        }
+        \end{minipage}
+        
+	\vspace{40mm}
+        
+	\begin{center}
+            {\LARGE{
+                    \setstretch{1.2}
+                    \textbf{Sviluppo di una Web Application per l’ottimizzazione onboarding flussi}
+                    \par
+            }}
+        \end{center}
+        
+        \vspace{40mm}
+
+        \noindent
+        {\large \textbf{Relatore:} Prof. Guido Giuseppe Fiorino } \\
+
+        %\noindent
+        %{\large \textbf{Correlatore:} Dott. CCC DDD}
+        
+        \vspace{10mm}
+
+        \begin{flushright}
+            {\large \textbf{Relazione della prova finale di:}} \\
+            \large{Oleg Stoianov} \\
+            \large{Matricola 829519} 
+        \end{flushright}
+        
+        \vspace{30mm}
+        \begin{center}
+            {\large{\bf Anno Accademico 2019-2020}}
+        \end{center}
+
+        \restoregeometry
+        
+\end{titlepage}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%INTERLINEA - DEFAULT 1 - NON ESAGERATE, NON SUPERATE MAI 1.3 ;)
+%\interlinea{1.2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frontmatter
+
+% DEDICA - PERSONALIZZARE
+% VSPACE - PROPORZIONE USATA PER CENTRATURA VERTICALE DEL TESTO
+% FLUSHRIGHT - ALLINEAMENTO ORIZZONTALE A DESTRA
+%\vspace*{\stretch{1}}
+%\begin{flushright}
+%\noindent
+
+%\end{flushright}
+%\vspace*{\stretch{6}}
+%\cleardoublepage
+
+
+% CITAZIONE - PERSONALIZZARE
+% VSPACE - PROPORZIONE USATA PER CENTRATURA VERTICALE DEL TESTO
+% FLUSHRIGHT - ALLINEAMENTO ORIZZONTALE A DESTRA
+%\vspace*{\stretch{1}}
+%\begin{flushright}
+%\noindent
+%Citatemi dicendo che sono stato citato male.
+
+%\textit{Groucho Marx}
+%\end{flushright}
+%\vspace*{\stretch{6}}
+%\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% RINGRAZIAMENTI - PERSONALIZZARE
+\ringraziamenti
+Un ringraziamento speciale alla mia famiglia, in particolare a mia madre e mio padre: è grazie a loro sostegno e al loro incoraggiamento se oggi sono riuscito a raggiungere questo traguardo.
+
+Ringrazio la mia fidanzata Veronica per avermi trasmesso la sua forza e il suo coraggio. Grazie per tutto il tempo che mi hai dedicato. Grazie per la pazienza che hai avuto con me. Grazie perché ci sei sempre stata. 
+
+
+Ringrazio i miei colleghi, nonchè amici, con cui ho condiviso l’intero percorso universitario. Grazie ai quali ho superato i momenti più difficili, e ho vissuto a pieno l'esperienza universitaria.
+
+
+Infine, dedico questa tesi a me stesso, ai miei sacrifici e alla mia tenacia che mi hanno permesso di arrivare fin qui.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ABSTRACT - PERSONALIZZARE
+\sommario
+\label{chap:sommario}
+Il seguente documento descrive il lavoro svolto dal laureando Oleg Stoianov durante il periodo di stage presso L’azienda Innovery S.p.a.
+L’obiettivo dell’attività era quello di sviluppare una Web Application per ottimizzare il processo di onboarding all’interno di un System Integrator, utilizzato presso l’azienda SIA S.p.A, per processi B2B ed EDI con i suoi business partner.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% INDICI - ELIMINARE GLI INDICI NON NECESSARI
+
+% INDICE GENERALE
+\tableofcontents
+
+% INDICE DELLE FIGURE
+\listoffigures
+
+% INDICE DELLE TABELLE
+\listoftables
+
+% INDICE DEI CODICI
+\listofcodes
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mainmatter
+
+% INCLUSIONE FILE CAPITOLI - PERSONALIZZARE - TENERE COERENTE CON LISTA IN ALTO
+\include{chap_introduzione}
+\include{chap_azienda}
+\include{chap_stage}
+\include{chap_strumenti}
+\include{chap_analisi}
+\include{chap_progettazione}
+\include{chap_verifica}
+
+\appendix
+% INCLUSIONE APPENDICI - - PERSONALIZZARE - TENERE COERENTE CON LISTA IN ALTO
+\include{app_a}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% BIBLIOGRAFIA
+\phantomsection
+\addcontentsline{toc}{chapter}{\refname}
+\nocite{*}
+\printbibliography
+
+\end{document}
