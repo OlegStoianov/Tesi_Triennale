@@ -1,7 +1,7 @@
 LaTeXi
 ======
 
-Puoi trovare la versione figa di questa guida [qui](http://poros.github.io/LaTeXi/).
+Puoi trovare la versione figa di questa guida [qui]().
 
 LaTeXi è un template LaTeX per tesi di laurea in italiano ed inglese. Il suo obiettivo principale è abbattere il monte annuo di imprecazioni lanciate contro LaTeX dagli studenti universitari.
 

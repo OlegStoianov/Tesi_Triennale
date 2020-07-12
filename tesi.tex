@@ -19,6 +19,7 @@
 \usepackage{verbatim}
 \usepackage{subfig}
 \usepackage{tabularx}
+\usepackage[table,xcdraw]{xcolor}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{float}
@@ -34,7 +35,11 @@
 \usepackage{amsmath}
 \usepackage[babel]{csquotes}
 \usepackage{hyperref}
+\usepackage[toc, acronym]{glossaries}
 \usepackage[backend=biber,bibencoding=ascii]{biblatex}
+
+
+\renewcommand*{\glstextformat}[1]{\textcolor{blue}{#1}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -49,6 +54,7 @@
     citecolor={blue}, %COLORE DEI RIFERIMENTI ALLE CITAZIONI
     urlcolor={blue} %COLORI DEGLI URL
 }
+\newcommand{\MYhref}[3][blue]{\href{#2}{\color{#1}{#3}}}%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -97,11 +103,16 @@
 
 % INFORMAZIONI PDF - PERSONALIZZARE
 \pdfinfo{%
-  /Title    (Sviluppo di una Web Application per l’ottimizzazione onboarding flussi)
+  /Title    (Sviluppo di una Web Application per l’ottimizzazione del processo di onboarding flussi)
   /Author   (Oleg Stoianov)
   /Subject  ()
   /Keywords ()
 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Glossario
+
+\makeglossaries
+\input{glossario}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -114,8 +125,11 @@ chap_strumenti,%
 chap_analisi,%
 chap_progettazione,%
 chap_verifica,%
+chap_conclusioni,%
 app_a,%
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % FILE DI BIBLIOGRAFIA
 \addbibresource{bibliography.bib}
@@ -199,7 +213,7 @@ app_a,%
 	\begin{center}
             {\LARGE{
                     \setstretch{1.2}
-                    \textbf{Sviluppo di una Web Application per l’ottimizzazione onboarding flussi}
+                    \textbf{Sviluppo di una Web Application per l’ottimizzazione del processo di onboarding flussi}
                     \par
             }}
         \end{center}
@@ -220,7 +234,7 @@ app_a,%
             \large{Matricola 829519} 
         \end{flushright}
         
-        \vspace{30mm}
+        \vspace{25mm}
         \begin{center}
             {\large{\bf Anno Accademico 2019-2020}}
         \end{center}
@@ -285,10 +299,11 @@ Infine, dedico questa tesi a me stesso, ai miei sacrifici e alla mia tenacia che
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % ABSTRACT - PERSONALIZZARE
-\sommario
-\label{chap:sommario}
-Il seguente documento descrive il lavoro svolto dal laureando Oleg Stoianov durante il periodo di stage presso L’azienda Innovery S.p.a.
-L’obiettivo dell’attività era quello di sviluppare una Web Application per ottimizzare il processo di onboarding all’interno di un System Integrator, utilizzato presso l’azienda SIA S.p.A, per processi B2B ed EDI con i suoi business partner.
+% \sommario
+% \hypertarget{sommario}{}
+% \label{chap:sommario}
+% Il seguente documento descrive il lavoro svolto dal laureando Oleg Stoianov durante il periodo di stage presso L’azienda Innovery S.p.a.
+% L’obiettivo dell’attività era quello di sviluppare una \gls{applicazioneweb} per ottimizzare il processo di onboarding di flussi logici e delle relative informazioni degli attori coinvolti durante lo scambio dei dati all’interno di un \gls{systemintegrator}, utilizzato presso l’azienda SIA S.p.A, per processi \gls{B2B} ed \gls{EDI}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -304,8 +319,8 @@ L’obiettivo dell’attività era quello di sviluppare una Web Application per 
 % INDICE DELLE TABELLE
 \listoftables
 
-% INDICE DEI CODICI
-\listofcodes
+% % INDICE DEI CODICI
+% \listofcodes
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -319,10 +334,24 @@ L’obiettivo dell’attività era quello di sviluppare una Web Application per 
 \include{chap_analisi}
 \include{chap_progettazione}
 \include{chap_verifica}
+\include{chap_conclusioni}
 
 \appendix
 % INCLUSIONE APPENDICI - - PERSONALIZZARE - TENERE COERENTE CON LISTA IN ALTO
 \include{app_a}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %GLOSSARIO
+\phantomsection
+%\addcontentsline{toc}{chapter}{Glossario}
+% \hypertarget{glossario}{}
+\printglossary
+\clearpage
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

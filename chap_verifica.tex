@@ -1,3 +1,17 @@
 \chapter{Verifica e validazione}
 \label{chap:verifica}
 
+\section{Analisi statica}
+Per l'analisi statica ed in particolare per alcune metriche come la complessità  ciclomatica, il numero di linee di codice per unità di compilazione e per le \gls{bestpractices} riguaranti la scrittura del codice è stato utilizzato SonarQube. 
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.5\columnwidth]{images/sonarqube-logo.png}
+\end{center}
+\caption{Logo SonarQube}
+\label{fig:sonar}
+\end{figure}
+
+SonarQube è una piattaforma \gls{opensource} per la gestione della qualità  del codice. Nello specifico è un’applicazione web che produce \textit{reports} sul codice duplicato, sugli standards di programmazione, i tests di unità , il \textit{code coverage}, la complessità , i \textit{bugs} potenziali, i commenti, la progettazione e l’architettura \cite{sonarqube}.
+\section{Analisi dinamica}
+Per l'analisi dinamica non è stato utilizzato nessuno strumento in particolare, bensì durante le fasi di collaudo con il committente sono stati effettuati i vari test per verificare la correttezza del programma e dell'analisi effettuata. La fase finale di collaudo, effettuata le ultime due settimane prima del rilascio del progetto, è stata fondamentale per la correzione degli ultimi errori rimasti.
